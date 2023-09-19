@@ -26,5 +26,5 @@ func GetAlpha(c *gin.Context) {
 		return
 	}
 
-	response.Response(c, http.StatusAccepted, alpha.Alpha)
+	response.Response(c, http.StatusAccepted, rand.Intn(alpha.Alpha))
 }
