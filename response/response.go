@@ -31,47 +31,55 @@ func Response(c *gin.Context, code int, ms interface{}) {
 func ifString(c *gin.Context, code int, msg string) {
 	c.JSON(code, gin.H{
 		"message": msg,
+		"status":  200,
 	})
 }
 
 func ifStringSlice(c *gin.Context, code int, msg []string) {
 	c.JSON(code, gin.H{
-		"data": msg,
+		"data":   msg,
+		"status": 200,
 	})
 }
 
 func ifUserSlice(c *gin.Context, code int, msg []models.User) {
 	c.JSON(code, gin.H{
-		"data": msg,
+		"data":   msg,
+		"status": 200,
 	})
 }
 
 func ifHotelSlice(c *gin.Context, code int, msg []models.Hotel) {
 	c.JSON(code, gin.H{
-		"data": msg,
+		"data":   msg,
+		"status": 200,
 	})
 }
 
 func ResponseToken(c *gin.Context, code int, token string, id string) {
 	c.JSON(code, gin.H{
-		"token": token,
-		"id":    id,
+		"token":  token,
+		"id":     id,
+		"status": 200,
 	})
 }
 
 func ifUser(c *gin.Context, code int, msg *models.User) {
 	c.JSON(code, gin.H{
-		"data": msg,
+		"data":   msg,
+		"status": 200,
 	})
 }
 func ifHotel(c *gin.Context, code int, msg *models.Hotel) {
 	c.JSON(code, gin.H{
-		"data": msg,
+		"data":   msg,
+		"status": 200,
 	})
 }
 
 func ifInt(c *gin.Context, code int, msg int) {
 	c.JSON(code, gin.H{
-		"qr": msg,
+		"qr":     msg,
+		"status": 200,
 	})
 }

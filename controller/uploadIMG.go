@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"log"
 	"net/http"
 
 	"example.com/m/database"
@@ -27,6 +28,7 @@ func UploadIMG(c *gin.Context) {
 
 	if err = database.DB.Where("Hotel = ?", hotelName).Update("HotelImage = ?", fileName).Error; err != nil {
 		response.Response(c, http.StatusBadRequest, "upload image create error")
+		log.Println(err)
 		return
 	}
 

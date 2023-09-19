@@ -3,6 +3,7 @@ package database
 import (
 	"log"
 
+	"example.com/m/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -15,7 +16,7 @@ func Connect() {
 	USER := "root"
 	PASS := "1234"
 	PROTOCOL := "tcp(localhost:3306)"
-	DBNAME := "CHECK-Q"
+	DBNAME := "CHECKQ"
 
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8mb4&parseTime=True&loc=Local"
 
@@ -24,6 +25,10 @@ func Connect() {
 	})
 	if err != nil {
 		log.Println("gorm DB Open Error")
+		panic(err)
+	}
+
+	if err = db.AutoMigrate(&models.User{}, &models.Hotel{}); err != nil {
 		panic(err)
 	}
 

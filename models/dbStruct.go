@@ -18,7 +18,6 @@ type User struct {
 }
 
 type Hotel struct {
-	UserId      string `gorm:"size:64" json:"userid"`      // 예약자; 았을경우 예약이 되어 있는걸로 판단
 	Room        string `gorm:"size:64" json:"room"`        // 방 번호
 	Personnel   int    `gorm:"size:64" json:"personnel"`   // 방 인원
 	Price       int    `gorm:"size:1024" json:"price"`     // 방 가격
@@ -28,6 +27,6 @@ type Hotel struct {
 	CheckIn     string `gorm:"size:64" json:"checkin"`     // 체크 인
 	CheckOut    string `gorm:"size:64" json:"checkout"`    // 체크 인
 	Alpha       int    `gorm:"size:64" json:"alpha"`       // 알파값
-
-	HotelImage string `gorm:"size:128"`
+	UserId      string `gorm:"size:64"`
+	HotelImage  string `gorm:"size:128"`
 }
